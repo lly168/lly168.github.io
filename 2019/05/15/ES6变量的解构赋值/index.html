@@ -10,7 +10,7 @@
   
   <title>
     
-      lly168
+      ES6变量的解构赋值 | lly168
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -95,8 +95,8 @@
 </header>
 
     <div id="article-banner">
-  <h2></h2>
-  <p class="post-date">2019-05-10</p>
+  <h2>ES6变量的解构赋值</h2>
+  <p class="post-date">2019-05-15</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -104,7 +104,35 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"></section>
+    <section class="markdown-content"><h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><p> 以前为变量赋值，只能直接指定值</p>
+<blockquote>
+<p>let a=100;<br>let b=200;<br>let c=300;</p>
+</blockquote>
+<p> ES6允许写成下面这样</p>
+<blockquote>
+<p>let [a,b,c]=[100,200,300] </p>
+</blockquote>
+<p>上面代码表示，可以从数组中提取值，按照对应位置，对变量赋值。</p>
+<ul>
+<li>注意 :左右两边，结构格式要保持一致</li>
+</ul>
+<blockquote>
+<p>let json= {<br>    name:’leying’<br>    age:18<br>    job:码农;<br>};<br>  let { name,age, job }=json<br>  console.log(name,age,job)  //leying  leying 码农</p>
+</blockquote>
+<blockquote>
+<p>let [ a,b,c ]=[ 1,2,3 ]<br>console.log(a,b,c)   //1,2,undefined<br>如果解构不成功，变量的值就等于undefined。</p>
+</blockquote>
+<p>解构赋值允许指定默认值。</p>
+<blockquote>
+<p>let [ a,b,c=0 ]=[ 1,2,3 ]<br>console.log(a,b,c)   //1,2,0<br>解构赋值允许指定默认值。</p>
+<ul>
+<li>上面代码中，如果一个数组成员是null，默认值就不会生效，因为null不严格等于undefined</li>
+</ul>
+</blockquote>
+<h2 id="解构赋值实例交换两个数"><a href="#解构赋值实例交换两个数" class="headerlink" title="解构赋值实例交换两个数"></a>解构赋值实例交换两个数</h2><blockquote>
+<p>let a=10<br>let b=200<br>[ a,b ]=[ b,a ]<br>console.log(a,b)  //200 10</p>
+</blockquote>
+</section>
     <!-- Tags START -->
     
     <!-- Tags END -->
@@ -113,17 +141,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/05/15/Vue04/">
+      <a class="nav-left" href="/2019/05/09/let和const命令/">
         <span class="nav-arrow">← </span>
         
-          Vue webpack打包配置
+          let和const命令
         
       </a>
     
     
-      <a class="nav-right" href="/2019/09/25/Vue02/">
+      <a class="nav-right" href="/2019/05/15/ES6字符串模板/">
         
-          Vue基础知识02（vue的生命周期与自定义指令）
+          ES6字符串模板
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -172,9 +200,9 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#解构赋值"><span class="toc-nav-text">解构赋值</span></a></li></ol><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#解构赋值实例交换两个数"><span class="toc-nav-text">解构赋值实例交换两个数</span></a>
     
-  </div>
+  </li></div>
 </aside>
   
   <!-- Catalog END -->
@@ -182,7 +210,7 @@
 
 <script>
   (function () {
-    var url = 'https://lly168.github.io/2019/05/10/let和const命令/';
+    var url = 'https://lly168.github.io/2019/05/15/ES6变量的解构赋值/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -244,7 +272,7 @@
     var gitmentConfig = "lly";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "",
+        id: "ES6变量的解构赋值",
         owner: "lly",
         repo: "lly.github.io",
         oauth: {
