@@ -96,7 +96,7 @@
 
     <div id="article-banner">
   <h2>javascript基础知识</h2>
-  <p class="post-date">2019-05-15</p>
+  <p class="post-date">2017-03-15</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -110,7 +110,7 @@
 <li>CSS: 用来美化网页</li>
 <li>JavaScript: 可以用来控制网页内容，给网页增加动态的效果</li>
 </ol>
-<h2 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h2><p><img src="//lly168.github.io/2019/05/15/javascript/1496912475691.png" alt="1496912475691"></p>
+<h2 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h2><p><img src="//lly168.github.io/2017/03/15/javascript/1496912475691.png" alt="1496912475691"></p>
 <h3 id="ECMAScript-JavaScript的核心"><a href="#ECMAScript-JavaScript的核心" class="headerlink" title="ECMAScript - JavaScript的核心"></a>ECMAScript - JavaScript的核心</h3><p>ECMA 欧洲计算机制造联合会</p>
 <p>网景：JavaScript</p>
 <p>微软：JScript</p>
@@ -147,8 +147,8 @@
 <li>输入设备：鼠标、键盘、手写板、摄像头等</li>
 <li>输出设备：显示器、打印机、投影仪等</li>
 </ul>
-<p><img src="//lly168.github.io/2019/05/15/javascript/1497317567484.png" alt="1497317567484"></p>
-<p><img src="//lly168.github.io/2019/05/15/javascript/1496916239525.png" alt="1496916239525"></p>
+<p><img src="//lly168.github.io/2017/03/15/javascript/1497317567484.png" alt="1497317567484"></p>
+<p><img src="//lly168.github.io/2017/03/15/javascript/1496916239525.png" alt="1496916239525"></p>
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h3><ul>
 <li><p>什么是变量</p>
 <p>变量是计算机内存中存储数据的标识符，根据变量名称可以获取到内存中存储的数据</p>
@@ -174,7 +174,7 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">10</span>, name = <span class="string">'zs'</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="变量在内存中的存储"><a href="#变量在内存中的存储" class="headerlink" title="变量在内存中的存储"></a>变量在内存中的存储</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="//lly168.github.io/2019/05/15/javascript/1496981558575.png" alt="1496981558575"></p>
+<p><img src="//lly168.github.io/2017/03/15/javascript/1496981558575.png" alt="1496981558575"></p>
 <h3 id="变量的命名规则和规范"><a href="#变量的命名规则和规范" class="headerlink" title="变量的命名规则和规范"></a>变量的命名规则和规范</h3><ul>
 <li><p>规则 - 必须遵守的，不遵守会报错</p>
 <ul>
@@ -231,7 +231,7 @@
 <p>‘程序猿’，’程序媛’</p>
 </li>
 <li><p>转义符</p>
-<p><img src="//lly168.github.io/2019/05/15/javascript/1498289626813.png" alt="1498289626813"></p>
+<p><img src="//lly168.github.io/2017/03/15/javascript/1498289626813.png" alt="1498289626813"></p>
 </li>
 <li><p>字符串长度</p>
 <p>length属性用来获取字符串的长度</p>
@@ -546,9 +546,9 @@ switch 语句在比较值时使用的是全等操作符, 因此不会发生类�
 
 将这样的所有的作用域列出来，可以有一个结构: 函数内指向函数外的链式结构。就称作作用域链。
 </code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例1：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">456</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f4</span>(<span class="params"></span>) </span>&#123;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="//lly168.github.io/2019/05/15/javascript/06-1.png" alt="06-1"></p>
+<p><img src="//lly168.github.io/2017/03/15/javascript/06-1.png" alt="06-1"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">123</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( num );</span><br><span class="line">    &#125;</span><br><span class="line">    f2();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">456</span>;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
-<p><img src="//lly168.github.io/2019/05/15/javascript/06-2.png" alt="06-2"></p>
+<p><img src="//lly168.github.io/2017/03/15/javascript/06-2.png" alt="06-2"></p>
 <h2 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h2><blockquote>
 <p>JavaScript代码的执行是由浏览器中的JavaScript解析器来执行的。JavaScript解析器执行JavaScript代码的时候，分为两个过程：预解析过程和代码执行过程</p>
 </blockquote>
@@ -777,15 +777,15 @@ switch 语句在比较值时使用的是全等操作符, 因此不会发生类�
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/05/09/let和const命令/">
+      <a class="nav-left" href="/2017/01/09/lly的第一篇博客，哈哈哈/">
         <span class="nav-arrow">← </span>
         
-          let和const命令
+          我还是来了...
         
       </a>
     
     
-      <a class="nav-right" href="/2019/05/15/javascript1/">
+      <a class="nav-right" href="/2017/05/15/javascript1/">
         
           JavaScript 高级知识
         
@@ -846,7 +846,7 @@ switch 语句在比较值时使用的是全等操作符, 因此不会发生类�
 
 <script>
   (function () {
-    var url = 'https://lly168.github.io/2019/05/15/javascript/';
+    var url = 'https://lly168.github.io/2017/03/15/javascript/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
