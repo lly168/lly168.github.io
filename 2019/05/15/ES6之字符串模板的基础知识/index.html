@@ -10,7 +10,7 @@
   
   <title>
     
-      ES6变量的解构赋值 | lly168
+      ES6之字符串模板的基础知识 | lly168
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -95,7 +95,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>ES6变量的解构赋值</h2>
+  <h2>ES6之字符串模板的基础知识</h2>
   <p class="post-date">2019-05-15</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -104,35 +104,18 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><p> 以前为变量赋值，只能直接指定值</p>
+    <section class="markdown-content"><h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><blockquote>
+<p>let name = ‘leying’<br>let age =18<br>let str=’这个人叫’+name+’，年龄是 ‘+age+ ‘岁’’;<br>console.log(str)  //这个人叫leying年龄是18岁</p>
+</blockquote>
+<p>es6：</p>
 <blockquote>
-<p>let a=100;<br>let b=200;<br>let c=300;</p>
+<p>let name = ‘leying’<br>let age =18<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let str= `这个人叫$&#123;name&#125;,年龄是$&#123;age&#125;s岁 `</span><br><span class="line">console.log(str)  //这个人叫leying年龄是18岁</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p> ES6允许写成下面这样</p>
-<blockquote>
-<p>let [a,b,c]=[100,200,300] </p>
-</blockquote>
-<p>上面代码表示，可以从数组中提取值，按照对应位置，对变量赋值。</p>
-<ul>
-<li>注意 :左右两边，结构格式要保持一致</li>
-</ul>
-<blockquote>
-<p>let json= {<br>    name:’leying’<br>    age:18<br>    job:码农;<br>};<br>  let { name,age, job }=json<br>  console.log(name,age,job)  //leying  leying 码农</p>
-</blockquote>
-<blockquote>
-<p>let [ a,b,c ]=[ 1,2,3 ]<br>console.log(a,b,c)   //1,2,undefined<br>如果解构不成功，变量的值就等于undefined。</p>
-</blockquote>
-<p>解构赋值允许指定默认值。</p>
-<blockquote>
-<p>let [ a,b,c=0 ]=[ 1,2,3 ]<br>console.log(a,b,c)   //1,2,0<br>解构赋值允许指定默认值。</p>
-<ul>
-<li>上面代码中，如果一个数组成员是null，默认值就不会生效，因为null不严格等于undefined</li>
-</ul>
-</blockquote>
-<h2 id="解构赋值实例交换两个数"><a href="#解构赋值实例交换两个数" class="headerlink" title="解构赋值实例交换两个数"></a>解构赋值实例交换两个数</h2><blockquote>
-<p>let a=10<br>let b=200<br>[ a,b ]=[ b,a ]<br>console.log(a,b)  //200 10</p>
-</blockquote>
-</section>
+<p>##字符串模板优点<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> 可以随意换行</span><br><span class="line">`$&#123;变量名称&#125; `</span><br></pre></td></tr></table></figure></p>
+<h3 id="字符串方法-includes"><a href="#字符串方法-includes" class="headerlink" title="字符串方法 includes()"></a>字符串方法 includes()</h3><p>  字符串查找:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> let str= &apos;apple banana  pear&apos;</span><br><span class="line"> ES5: </span><br><span class="line"></span><br><span class="line"> if(str.indexOf(&apos;apple&apos;)!=-1)&#123;</span><br><span class="line">  alert(true)</span><br><span class="line">&#125;else &#123;</span><br><span class="line">  alert(false)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ES6 :</span><br><span class="line">console.log(str.includes(&apos;banana&apos;))   //有就是true  没有就是false</span><br></pre></td></tr></table></figure></p>
+<h3 id="字符串方法-startsWith-endsWith"><a href="#字符串方法-startsWith-endsWith" class="headerlink" title="字符串方法 startsWith(),endsWith()"></a>字符串方法 startsWith(),endsWith()</h3><p>  startsWith   字符串是否以xxx开头:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let str =&apos;www.baidu.com&apos;</span><br><span class="line">console.log(str.startsWith(&apos;www&apos;))   //有就是true  没有就是false </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endsWith   字符串是否以xxx结尾:</span><br><span class="line"></span><br><span class="line">console.log(str.endsWith(&apos;com&apos;))   //有就是true  没有就是false</span><br></pre></td></tr></table></figure></p>
+<h3 id="重复字符串-repeat-n"><a href="#重复字符串-repeat-n" class="headerlink" title="重复字符串  repeat(n)"></a>重复字符串  repeat(n)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let str= ES6</span><br><span class="line">console.log(str,repeat(3)) // ES6   重复打印ES6  3次</span><br></pre></td></tr></table></figure>
+<h3 id="字符串填充-padStart-padEnd"><a href="#字符串填充-padStart-padEnd" class="headerlink" title="字符串填充  padStart()  padEnd()"></a>字符串填充  padStart()  padEnd()</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">向前填充   padStart(整个字符串的长度，填充的东西) </span><br><span class="line">向后填充   padEnd(整个字符串的长度，填充的东西)</span><br><span class="line"></span><br><span class="line">&apos;a&apos; =&gt; &apos;xxxa&apos;</span><br><span class="line"></span><br><span class="line">let str= &apos;a&apos;</span><br><span class="line">let padStr= &apos;xxx&apos;</span><br><span class="line">let EndStr= &apos;pppp&apos;</span><br><span class="line"></span><br><span class="line">console.log(str.padStart(str.length+padStr.length,padStr))  //xxxa</span><br><span class="line"></span><br><span class="line">console.log(str.EndStr(str.length+padStr.length,EndStr))  //appp</span><br></pre></td></tr></table></figure></section>
     <!-- Tags START -->
     
     <!-- Tags END -->
@@ -141,17 +124,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/05/15/ES6字符串模板/">
+      <a class="nav-left" href="/2019/05/15/ES6之变量的解构赋值/">
         <span class="nav-arrow">← </span>
         
-          ES6字符串模板
+          ES6之变量的解构赋值
         
       </a>
     
     
-      <a class="nav-right" href="/2019/05/16/ES6箭头函数/">
+      <a class="nav-right" href="/2019/05/16/ES6之Promise的使用/">
         
-          ES6箭头函数
+          ES6之Promise的使用
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -200,7 +183,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#解构赋值"><span class="toc-nav-text">解构赋值</span></a></li></ol><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#解构赋值实例交换两个数"><span class="toc-nav-text">解构赋值实例交换两个数</span></a>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串模板"><span class="toc-nav-text">字符串模板</span></a></li></ol><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符串方法-includes"><span class="toc-nav-text">字符串方法 includes()</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符串方法-startsWith-endsWith"><span class="toc-nav-text">字符串方法 startsWith(),endsWith()</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重复字符串-repeat-n"><span class="toc-nav-text">重复字符串  repeat(n)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符串填充-padStart-padEnd"><span class="toc-nav-text">字符串填充  padStart()  padEnd()</span></a>
     
   </li></div>
 </aside>
@@ -210,7 +193,7 @@
 
 <script>
   (function () {
-    var url = 'https://lly168.github.io/2019/05/15/ES6变量的解构赋值/';
+    var url = 'https://lly168.github.io/2019/05/15/ES6之字符串模板的基础知识/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -272,7 +255,7 @@
     var gitmentConfig = "lly";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "ES6变量的解构赋值",
+        id: "ES6之字符串模板的基础知识",
         owner: "lly",
         repo: "lly.github.io",
         oauth: {

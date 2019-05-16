@@ -10,7 +10,7 @@
   
   <title>
     
-      let和const命令 | lly168
+      ES6中let和const命令 | lly168
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -95,7 +95,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>let和const命令</h2>
+  <h2>ES6中let和const命令</h2>
   <p class="post-date">2019-05-09</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -104,7 +104,7 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="let和const命令"><a href="#let和const命令" class="headerlink" title="let和const命令"></a>let和const命令</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h5 id="ES6新增了-let命令，用来声明变量，它的用法类似于-var-但是所声明的变量，只在let命令所在的代码块内有效"><a href="#ES6新增了-let命令，用来声明变量，它的用法类似于-var-但是所声明的变量，只在let命令所在的代码块内有效" class="headerlink" title="ES6新增了 let命令，用来声明变量，它的用法类似于 var 但是所声明的变量，只在let命令所在的代码块内有效"></a>ES6新增了 let命令，用来声明变量，它的用法类似于 var 但是所声明的变量，只在let命令所在的代码块内有效</h5><blockquote>
+    <section class="markdown-content"><h1 id="ES6中let和const命令"><a href="#ES6中let和const命令" class="headerlink" title="ES6中let和const命令"></a>ES6中let和const命令</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h5 id="ES6新增了-let命令，用来声明变量，它的用法类似于-var-但是所声明的变量，只在let命令所在的代码块内有效"><a href="#ES6新增了-let命令，用来声明变量，它的用法类似于-var-但是所声明的变量，只在let命令所在的代码块内有效" class="headerlink" title="ES6新增了 let命令，用来声明变量，它的用法类似于 var 但是所声明的变量，只在let命令所在的代码块内有效"></a>ES6新增了 let命令，用来声明变量，它的用法类似于 var 但是所声明的变量，只在let命令所在的代码块内有效</h5><blockquote>
 <pre><code> {
         let a = 20;
         var b = 10;
@@ -136,17 +136,17 @@ console.log(b)  //10
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/03/15/ES5 , ES6数组/">
+      <a class="nav-left" href="/2019/03/15/JavaScript , ES6数组常用方法/">
         <span class="nav-arrow">← </span>
         
-          ES5、 ES6数组
+          JavaScript , ES6数组常用方法
         
       </a>
     
     
-      <a class="nav-right" href="/2019/05/15/ES6字符串模板/">
+      <a class="nav-right" href="/2019/05/15/ES6之变量的解构赋值/">
         
-          ES6字符串模板
+          ES6之变量的解构赋值
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -195,7 +195,7 @@ console.log(b)  //10
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#let和const命令"><span class="toc-nav-text">let和const命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本用法"><span class="toc-nav-text">基本用法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#ES6新增了-let命令，用来声明变量，它的用法类似于-var-但是所声明的变量，只在let命令所在的代码块内有效"><span class="toc-nav-text">ES6新增了 let命令，用来声明变量，它的用法类似于 var 但是所声明的变量，只在let命令所在的代码块内有效</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#上面代码在代码块之中，分别用let和var声明了两个变量，然后再代码块之外调用这两个变量，结果let声明的变量报错，-var声明的变量返回了正确的值，这表明，let声明的变量只在它所在的代码块有效。"><span class="toc-nav-text">上面代码在代码块之中，分别用let和var声明了两个变量，然后再代码块之外调用这两个变量，结果let声明的变量报错， var声明的变量返回了正确的值，这表明，let声明的变量只在它所在的代码块有效。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#for-循环的计数器，就很合适使用let命令"><span class="toc-nav-text">for 循环的计数器，就很合适使用let命令</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#在上面代码中，计数器-i-只在for循环体内有效，在循环体外引用就会报错。下面的代码如果用var-最后输入的是10"><span class="toc-nav-text">在上面代码中，计数器 i 只在for循环体内有效，在循环体外引用就会报错。下面的代码如果用var 最后输入的是10</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。"><span class="toc-nav-text">上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。"><span class="toc-nav-text">如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#let-相当于之前的var"><span class="toc-nav-text">let 相当于之前的var</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#const-定义好了不能改变"><span class="toc-nav-text">const 定义好了不能改变</span></a></li></ol></li></ol></li></ol><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#let-注意"><span class="toc-nav-text">let 注意</span></a></li>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ES6中let和const命令"><span class="toc-nav-text">ES6中let和const命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本用法"><span class="toc-nav-text">基本用法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#ES6新增了-let命令，用来声明变量，它的用法类似于-var-但是所声明的变量，只在let命令所在的代码块内有效"><span class="toc-nav-text">ES6新增了 let命令，用来声明变量，它的用法类似于 var 但是所声明的变量，只在let命令所在的代码块内有效</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#上面代码在代码块之中，分别用let和var声明了两个变量，然后再代码块之外调用这两个变量，结果let声明的变量报错，-var声明的变量返回了正确的值，这表明，let声明的变量只在它所在的代码块有效。"><span class="toc-nav-text">上面代码在代码块之中，分别用let和var声明了两个变量，然后再代码块之外调用这两个变量，结果let声明的变量报错， var声明的变量返回了正确的值，这表明，let声明的变量只在它所在的代码块有效。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#for-循环的计数器，就很合适使用let命令"><span class="toc-nav-text">for 循环的计数器，就很合适使用let命令</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#在上面代码中，计数器-i-只在for循环体内有效，在循环体外引用就会报错。下面的代码如果用var-最后输入的是10"><span class="toc-nav-text">在上面代码中，计数器 i 只在for循环体内有效，在循环体外引用就会报错。下面的代码如果用var 最后输入的是10</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。"><span class="toc-nav-text">上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。"><span class="toc-nav-text">如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#let-相当于之前的var"><span class="toc-nav-text">let 相当于之前的var</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#const-定义好了不能改变"><span class="toc-nav-text">const 定义好了不能改变</span></a></li></ol></li></ol></li></ol><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#let-注意"><span class="toc-nav-text">let 注意</span></a></li>
     
   </div>
 </aside>
@@ -205,7 +205,7 @@ console.log(b)  //10
 
 <script>
   (function () {
-    var url = 'https://lly168.github.io/2019/05/09/let和const命令/';
+    var url = 'https://lly168.github.io/2019/05/09/ES6中let和const命令/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -267,7 +267,7 @@ console.log(b)  //10
     var gitmentConfig = "lly";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "let和const命令",
+        id: "ES6中let和const命令",
         owner: "lly",
         repo: "lly.github.io",
         oauth: {

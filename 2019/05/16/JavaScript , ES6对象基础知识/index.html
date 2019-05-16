@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="lly&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      JavaScript , ES6对象基础知识 | lly168
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+    <script src="/js/gitment.js"></script>
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>lly168</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>JavaScript , ES6对象基础知识</h2>
+  <p class="post-date">2019-05-16</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h4 id="JavaScript-ES6对象基础知识"><a href="#JavaScript-ES6对象基础知识" class="headerlink" title="JavaScript , ES6对象基础知识"></a>JavaScript , ES6对象基础知识</h4><h2 id="对象简写"><a href="#对象简写" class="headerlink" title="对象简写"></a>对象简写</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;leying&apos;;</span><br><span class="line">let agr = 18;</span><br><span class="line"></span><br><span class="line">let json = &#123;</span><br><span class="line">  name,  //name:&apos;name&apos;</span><br><span class="line">  age  //age:age</span><br><span class="line">&#125;</span><br><span class="line">console.log(json)</span><br></pre></td></tr></table></figure>
+<h2 id="Object-is-比较两个数是否相等"><a href="#Object-is-比较两个数是否相等" class="headerlink" title="Object.is()   比较两个数是否相等"></a>Object.is()   比较两个数是否相等</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN == NaN )  //false</span><br><span class="line"></span><br><span class="line">console.log( Number.isNaN(NaN) )  //true</span><br><span class="line"></span><br><span class="line">let b = Object(NaN,NaN);</span><br><span class="line"></span><br><span class="line">console.log(b)  // true</span><br><span class="line"></span><br><span class="line">console.log(+0 == -0)  // true</span><br><span class="line"></span><br><span class="line">console.log(Object.is(+0 == -0))  // false</span><br></pre></td></tr></table></figure>
+<h2 id="Object-assign-用来合并对象"><a href="#Object-assign-用来合并对象" class="headerlink" title="Object.assign()    用来合并对象"></a>Object.assign()    用来合并对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">用途：</span><br><span class="line">复制一个对象</span><br><span class="line">合并参数</span><br><span class="line"></span><br><span class="line">let 新的对象 = Object.assign(目标对象,obj1,obj2,obj3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let json1 = &#123;a:1&#125;</span><br><span class="line">let json2 = &#123;b:2,a:2&#125;</span><br><span class="line">let json3= &#123;c:3&#125;</span><br><span class="line"></span><br><span class="line">let obj= Object.assign( &#123;&#125;,json1,json2,json3)</span><br><span class="line"></span><br><span class="line">console.log(obj)   // &#123;a:2,b:2,c:3&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let arr =[&apos;apple&apos;,&apos;banana&apos;, &apos;orange&apos;,&apos;tomato&apos; ]</span><br><span class="line"></span><br><span class="line">let arr2 = Object.assign([],arr)</span><br><span class="line"></span><br><span class="line">console.log(arr2)  // [&apos;apple&apos;,&apos;banana&apos;, &apos;orange&apos;,&apos;tomato&apos; ]</span><br></pre></td></tr></table></figure>
+<h2 id="Object-keys-、Object-values-、Object-entries"><a href="#Object-keys-、Object-values-、Object-entries" class="headerlink" title="Object.keys() 、Object.values() 、Object.entries()"></a>Object.keys() 、Object.values() 、Object.entries()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let &#123;keys，values，entries &#125;=Object</span><br><span class="line"></span><br><span class="line">let json= &#123;</span><br><span class="line">  a:1,</span><br><span class="line">  b:2,</span><br><span class="line">  c:3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">for (let key of keys(json)) &#123;</span><br><span class="line">  console.log(key);  //a,b,c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let value of values(json)) &#123;</span><br><span class="line">  console.log(value);  //1,2,3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let item of entries(json)) &#123;</span><br><span class="line">  console.log(item);  //[&apos;a&apos;,1],[&apos;b&apos;,2][&apos;c&apos;,3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (let [key,val] of entries(json)) &#123;</span><br><span class="line">  console.log(key,val);  //a 1 b 2 c 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对象的扩展运算"><a href="#对象的扩展运算" class="headerlink" title="对象的扩展运算"></a>对象的扩展运算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123;x,y,...z&#125;= &#123;x:1,y:2,a:3,b:4&#125;</span><br><span class="line"></span><br><span class="line">console.log(x,y,z) //1,2, &#123;a:3,b：4&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">复制json</span><br><span class="line"></span><br><span class="line">let json = &#123;a:3,b:4&#125;;</span><br><span class="line"></span><br><span class="line">let json2= &#123;...json&#125;;</span><br><span class="line"></span><br><span class="line">console.log(json2) //&#123;a:3,b：4&#125;</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/16/ES6之Promise的使用/">
+        <span class="nav-arrow">← </span>
+        
+          ES6之Promise的使用
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/16/ES6之箭头函数与扩展运算符的使用/">
+        
+          ES6之箭头函数与扩展运算符的使用.
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <!-- <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div> -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <!-- <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div> -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <!-- <div id="comments"></div> -->
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#JavaScript-ES6对象基础知识"><span class="toc-nav-text">JavaScript , ES6对象基础知识</span></a></li></ol><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对象简写"><span class="toc-nav-text">对象简写</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Object-is-比较两个数是否相等"><span class="toc-nav-text">Object.is()   比较两个数是否相等</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Object-assign-用来合并对象"><span class="toc-nav-text">Object.assign()    用来合并对象</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Object-keys-、Object-values-、Object-entries"><span class="toc-nav-text">Object.keys() 、Object.values() 、Object.entries()</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对象的扩展运算"><span class="toc-nav-text">对象的扩展运算</span></a>
+    
+  </li></div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://lly168.github.io/2019/05/16/JavaScript , ES6对象基础知识/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "lly";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "JavaScript , ES6对象基础知识",
+        owner: "lly",
+        repo: "lly.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/lly168">lly168</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
