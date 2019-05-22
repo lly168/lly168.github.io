@@ -141,17 +141,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/05/09/ES6中let和const命令/">
+      <a class="nav-left" href="/2019/05/15/ES6之字符串模板的基础知识/">
         <span class="nav-arrow">← </span>
         
-          ES6中let和const命令
+          ES6之字符串模板的基础知识
         
       </a>
     
     
-      <a class="nav-right" href="/2019/05/15/ES6之字符串模板的基础知识/">
+      <a class="nav-right" href="/2019/05/16/JavaScript , ES6对象基础知识/">
         
-          ES6之字符串模板的基础知识
+          JavaScript , ES6对象基础知识
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -305,6 +305,12 @@
     <footer class="app-footer">
   <p class="copyright">
     &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    {% if theme.footer.counter %}
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    {% endif %}
     <br>
     Theme by <a href="https://github.com/lly168">lly168</a>
   </p>
@@ -325,7 +331,7 @@
     FastClick.attach(document.body);
   })
 </script>
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
   var hasLine = 'true';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){

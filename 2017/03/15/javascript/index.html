@@ -941,6 +941,12 @@ switch 语句在比较值时使用的是全等操作符, 因此不会发生类�
     <footer class="app-footer">
   <p class="copyright">
     &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    {% if theme.footer.counter %}
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    {% endif %}
     <br>
     Theme by <a href="https://github.com/lly168">lly168</a>
   </p>
@@ -961,7 +967,7 @@ switch 语句在比较值时使用的是全等操作符, 因此不会发生类�
     FastClick.attach(document.body);
   })
 </script>
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
   var hasLine = 'true';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
