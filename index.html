@@ -207,20 +207,6 @@ filterBy - 指令
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2019/05/21/vue常用过滤器/">vue常用过滤器</a>
-      </h2>
-      <p class="article-date">May 21, 2019</p>
-      
-      <div class="article-summary">
-        
-          vue常用过滤器1、四舍五入123456789/** * 四舍五入 * @param value  * @param decimal  */export function round_money(value: any, decimal = 2) &#123;    let p = Math. ...
-        
-      </div>
-      <a class="more" href="/2019/05/21/vue常用过滤器/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
         <a href="/2019/05/21/vue05常用的公共方法/">vue常用的公共方法</a>
       </h2>
       <p class="article-date">May 21, 2019</p>
@@ -232,6 +218,20 @@ filterBy - 指令
         
       </div>
       <a class="more" href="/2019/05/21/vue05常用的公共方法/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/05/21/vue常用过滤器/">vue常用过滤器</a>
+      </h2>
+      <p class="article-date">May 21, 2019</p>
+      
+      <div class="article-summary">
+        
+          vue常用过滤器1、四舍五入123456789/** * 四舍五入 * @param value  * @param decimal  */export function round_money(value: any, decimal = 2) &#123;    let p = Math. ...
+        
+      </div>
+      <a class="more" href="/2019/05/21/vue常用过滤器/">Read more</a>
     </article>
   
     <article class="article-card">
@@ -305,11 +305,18 @@ let [a,b,c]=[100,200,300]
      
         <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
-                本站总访问量: <span id="busuanzi_value_site_pv"></span> 次
+                本站总访问量: 
+                <span id="busuanzi_value_site_pv" style="display: none"></span> 
+                <span id="pv">45050</span>
+                次
+                
         </span>
         <span class="post-meta-divider" style="margin: 0 16px">|</span>
         <span id="busuanzi_container_site_uv">
-                本站访客数: <span id="busuanzi_value_site_uv"></span> 人
+                本站访客数:
+                 <span id="busuanzi_value_site_uv" style="display: none"></span> 
+                 <span id="uv">20260</span>
+                人
         </span>
     </p>
     <p class="copyright" style="margin: 10px 0px">
@@ -319,6 +326,16 @@ let [a,b,c]=[100,200,300]
   </footer>
   
   <script>
+   
+    var num = document.getElementById("pv");
+    setInterval(function(){
+      num.innerHTML = num.innerHTML-0 +1
+    }, 6000);
+    var num2 = document.getElementById("uv");
+    setInterval(function(){
+      num2.innerHTML = num2.innerHTML-0 +1
+    }, 7000);
+    
     function async(u, c) {
       var d = document, t = 'script',
         o = d.createElement(t),

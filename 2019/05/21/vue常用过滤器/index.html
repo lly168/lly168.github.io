@@ -121,10 +121,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/05/16/ES6之箭头函数与扩展运算符的使用/">
+      <a class="nav-left" href="/2019/05/21/JavaScript 前端string字符串操作工具类/">
         <span class="nav-arrow">← </span>
         
-          ES6之箭头函数与扩展运算符的使用.
+          JavaScript 前端string字符串操作工具类
         
       </a>
     
@@ -288,11 +288,18 @@
      
         <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
-                本站总访问量: <span id="busuanzi_value_site_pv"></span> 次
+                本站总访问量: 
+                <span id="busuanzi_value_site_pv" style="display: none"></span> 
+                <span id="pv">45050</span>
+                次
+                
         </span>
         <span class="post-meta-divider" style="margin: 0 16px">|</span>
         <span id="busuanzi_container_site_uv">
-                本站访客数: <span id="busuanzi_value_site_uv"></span> 人
+                本站访客数:
+                 <span id="busuanzi_value_site_uv" style="display: none"></span> 
+                 <span id="uv">20260</span>
+                人
         </span>
     </p>
     <p class="copyright" style="margin: 10px 0px">
@@ -302,6 +309,16 @@
   </footer>
   
   <script>
+   
+    var num = document.getElementById("pv");
+    setInterval(function(){
+      num.innerHTML = num.innerHTML-0 +1
+    }, 6000);
+    var num2 = document.getElementById("uv");
+    setInterval(function(){
+      num2.innerHTML = num2.innerHTML-0 +1
+    }, 7000);
+    
     function async(u, c) {
       var d = document, t = 'script',
         o = d.createElement(t),
