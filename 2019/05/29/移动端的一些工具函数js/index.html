@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="lly&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      移动端的一些工具函数js | lly168
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+    <script src="/js/gitment.js"></script>
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>lly168</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>移动端的一些工具函数js</h2>
+  <p class="post-date">2019-05-29</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="移动端的一些工具函数js"><a href="#移动端的一些工具函数js" class="headerlink" title="移动端的一些工具函数js"></a>移动端的一些工具函数js</h2><h4 id="判断手机系统"><a href="#判断手机系统" class="headerlink" title="判断手机系统"></a>判断手机系统</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export const mSystem = () =&gt; &#123;</span><br><span class="line">    let u = navigator.userAgent;</span><br><span class="line">    if(u.includes(&apos;iPhone&apos;))&#123;</span><br><span class="line">        return &apos;ios&apos;;</span><br><span class="line">    &#125;else if(u.includes(&apos;Android&apos;) || u.includes(&apos;Linux&apos;))&#123;</span><br><span class="line">        return &apos;android&apos;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return &apos;other&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断手机联网状态"><a href="#判断手机联网状态" class="headerlink" title="判断手机联网状态"></a>判断手机联网状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> *</span><br><span class="line"> * @return &#123;Boolean&#125; [有网络：true，无网络：false]</span><br><span class="line"> */</span><br><span class="line">export function isOnline() &#123;</span><br><span class="line">  return navigator.onLine;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="微信登录"><a href="#微信登录" class="headerlink" title="微信登录"></a>微信登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">export function weixinLogin() &#123;</span><br><span class="line">  location.href = &quot;https://open.weixin.qq.com/connect/oauth2/authorize&quot; +</span><br><span class="line">    &quot;?appid=&quot; + process.env.appid +</span><br><span class="line">    &quot;&amp;redirect_uri=&quot; + encodeURIComponent(window.location.href) +</span><br><span class="line">    &quot;&amp;response_type=code&amp;scope=snsapi_userinfo&quot; +</span><br><span class="line">    &quot;&amp;state=&quot; + new Date().getTime() + &quot;#wechat_redirect&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断是否为微信"><a href="#判断是否为微信" class="headerlink" title="判断是否为微信"></a>判断是否为微信</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @return &#123;Boolean&#125; [true: 微信环境, false: 非微信]</span><br><span class="line"> */</span><br><span class="line">export function isWeixin() &#123;</span><br><span class="line">  let ua = window.navigator.userAgent.toLowerCase();</span><br><span class="line">  if (ua.match(/MicroMessenger/i) == &apos;micromessenger&apos;) &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断是否为qq"><a href="#判断是否为qq" class="headerlink" title="判断是否为qq"></a>判断是否为qq</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @return &#123;Boolean&#125; [true: qq环境, false: 非qq]</span><br><span class="line"> */</span><br><span class="line">export function isQQ() &#123;</span><br><span class="line">  let ua = window.navigator.userAgent.toLowerCase();</span><br><span class="line">  if (ua.match(/QQ/i) == &quot;qq&quot;) &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断环境是pc端还是mobile端"><a href="#判断环境是pc端还是mobile端" class="headerlink" title="判断环境是pc端还是mobile端"></a>判断环境是pc端还是mobile端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">export function isMobile() &#123;</span><br><span class="line">  let userAgentInfo = navigator.userAgent;</span><br><span class="line">  let Agents = [&quot;Android&quot;, &quot;iPhone&quot;,</span><br><span class="line">    &quot;SymbianOS&quot;, &quot;Windows Phone&quot;,</span><br><span class="line">    &quot;iPad&quot;, &quot;iPod&quot;</span><br><span class="line">  ];</span><br><span class="line">  let flag = false;</span><br><span class="line">  for (let v = 0; v &lt; Agents.length; v++) &#123;</span><br><span class="line">    if (userAgentInfo.indexOf(Agents[v]) &gt; 0) &#123;</span><br><span class="line">      flag = true;</span><br><span class="line">      break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="页面环境model"><a href="#页面环境model" class="headerlink" title="页面环境model"></a>页面环境model</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @return &#123;Number&#125; 1:iPhone,2:android,3:H5</span><br><span class="line"> */</span><br><span class="line">export function isModel() &#123;</span><br><span class="line">  let isModelNumber;</span><br><span class="line">  let u = navigator.userAgent;</span><br><span class="line">  if (u.indexOf(&apos;iPhone&apos;) &gt; -1 &amp;&amp; getParameter(&quot;isApp&quot;)) &#123;</span><br><span class="line">    //苹果手机  app内</span><br><span class="line">    isModelNumber = 1;</span><br><span class="line">  &#125; else if ((u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Linux&apos;) &gt; -1) &amp;&amp; getParameter(&quot;isApp&quot;)) &#123;</span><br><span class="line">    //安卓手机  app内</span><br><span class="line">    isModelNumber = 2;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    //h5页面  app外</span><br><span class="line">    isModelNumber = 3;</span><br><span class="line">  &#125;</span><br><span class="line">  return isModelNumber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="下载App"><a href="#下载App" class="headerlink" title="下载App"></a>下载App</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param  &#123;Boolean&#125; isWeChat [true: 微信环境, false: 非微信]</span><br><span class="line"> */</span><br><span class="line">export function downloadApp() &#123;</span><br><span class="line">  if (isWeixin()) &#123;</span><br><span class="line">    window.location.href = &quot;http://a.app.qq.com/o/simple.jsp?pkgname=com.lzhplus.lzh&quot;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let u = navigator.userAgent;</span><br><span class="line">    if (u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Linux&apos;) &gt; -1) &#123; //安卓手机</span><br><span class="line">      window.location.href = &quot;http://pkg.lzhplus.com/app-android_lzh_sign.apk&quot;;</span><br><span class="line">    &#125; else if (u.indexOf(&apos;iPhone&apos;) &gt; -1) &#123; //苹果手机</span><br><span class="line">      location.href = &quot;https://itunes.apple.com/us/app/lao-zi-haobeta/id1069755552?l=zh&amp;ls=1&amp;mt=8&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="打开app-深度链接"><a href="#打开app-深度链接" class="headerlink" title="打开app(深度链接)"></a>打开app(深度链接)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 打开app(深度链接)</span><br><span class="line"> * @param  &#123;String&#125; linkId   商品id，定制id，活动id等</span><br><span class="line"> * @param  &#123;Number&#125; linkType 链接类型</span><br><span class="line"> */</span><br><span class="line">export function openApp(linkId, linkType) &#123;</span><br><span class="line">  let flagWeixin = isWeixin(),</span><br><span class="line">    flagQQ = isQQ(),</span><br><span class="line">    from = getParameter(&quot;from&quot;);</span><br><span class="line">  if (flagWeixin || flagQQ) &#123;</span><br><span class="line">    // weixinTip();</span><br><span class="line">    // window.location.href=&quot;http://a.app.qq.com/o/simple.jsp?pkgname=com.lzhplus.lzh&quot;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let u = navigator.userAgent;</span><br><span class="line">    if (u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Linux&apos;) &gt; -1) &#123; //安卓手机</span><br><span class="line">      window.location.href = &apos;Laozh://?linkId=&apos; + linkId + &apos;&amp;linkType=&apos; + linkType;</span><br><span class="line">      window.setTimeout(function() &#123;</span><br><span class="line">        if (from == &quot;toutiao&quot;) &#123;</span><br><span class="line">          window.location.href = &quot;http://hzlzh.oss-cn-hangzhou.aliyuncs.com/app-android_112_UMENG_CHANNEL_jinritoutiao_jinritoutiao_android_sign.apk&quot;;</span><br><span class="line">        &#125; else if (from == &quot;yidian&quot;) &#123;</span><br><span class="line">          window.location.href = &quot;http://hzlzh.oss-cn-hangzhou.aliyuncs.com/app-android_112_UMENG_CHANNEL_yidianzixun_android_yidianzixun_sign.apk&quot;;</span><br><span class="line">        &#125; else if (from == &quot;zhihui&quot;) &#123;</span><br><span class="line">          window.location.href = &quot;http://hzlzh.oss-cn-hangzhou.aliyuncs.com/app-android_112_UMENG_CHANNEL_zhihuitui_android_zhihuitui_sign.apk&quot;;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          window.location.href = &quot;https://pkg.laozihaojia.com/app-android_lzh_sign.apk&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, 2000);</span><br><span class="line">    &#125; else if (u.indexOf(&apos;iPhone&apos;) &gt; -1) &#123; //苹果手机</span><br><span class="line">      window.location.href = &apos;Laozh://?linkId=&apos; + linkId + &apos;&amp;linkType=&apos; + linkType;</span><br><span class="line">      window.setTimeout(function() &#123;</span><br><span class="line">        location.href = &quot;https://itunes.apple.com/us/app/lao-zi-haobeta/id1069755552?l=zh&amp;ls=1&amp;mt=8&quot;;</span><br><span class="line">      &#125;, 2000);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="设置和读取sessionStorage（localStorage同理）"><a href="#设置和读取sessionStorage（localStorage同理）" class="headerlink" title="设置和读取sessionStorage（localStorage同理）"></a>设置和读取sessionStorage（localStorage同理）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * 设置：session(&apos;token&apos;,&apos;abc123&apos;)</span><br><span class="line"> * 读取：session(&apos;token&apos;)    //abc123</span><br><span class="line"> * @param  &#123;String&#125; key    键</span><br><span class="line"> * @param  &#123;String | Object | Array&#125; value  值</span><br><span class="line"> */</span><br><span class="line">export const session = function(key, value)&#123;</span><br><span class="line">  if (value === void(0)) &#123;</span><br><span class="line">    var lsVal = sessionStorage.getItem(key);</span><br><span class="line">    if(lsVal &amp;&amp; lsVal.indexOf(&apos;autostringify-&apos;) === 0 )&#123;</span><br><span class="line">      return JSON.parse(lsVal.split(&apos;autostringify-&apos;)[1]);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      return lsVal;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    if (typeof(value)===&quot;object&quot; || Array.isArray(value)) &#123;</span><br><span class="line">      value = &apos;autostringify-&apos; + JSON.stringify(value);</span><br><span class="line">    &#125;;</span><br><span class="line">    return sessionStorage.setItem(key, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="生成随机数（数字加字母）"><a href="#生成随机数（数字加字母）" class="headerlink" title="生成随机数（数字加字母）"></a>生成随机数（数字加字母）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param  &#123;Number&#125; len 长度</span><br><span class="line"> * @return &#123;String&#125;     随机数</span><br><span class="line"> */</span><br><span class="line">export const getUUID = function (len) &#123;</span><br><span class="line">  len = len || 6;</span><br><span class="line">  len = parseInt(len, 10);</span><br><span class="line">  len = isNaN(len) ? 6 : len;</span><br><span class="line">  var seed = &quot;0123456789abcdefghijklmnopqrstubwxyzABCEDFGHIJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line">  var seedLen = seed.length - 1;</span><br><span class="line">  var uuid = &quot;&quot;;</span><br><span class="line">  while (len--) &#123;</span><br><span class="line">    uuid += seed[Math.round(Math.random() * seedLen)];</span><br><span class="line">  &#125;</span><br><span class="line">  return uuid;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 深拷贝</span><br><span class="line"> * @param  &#123;Object | Array&#125; source  源数据</span><br><span class="line"> * @return &#123;Object | Array&#125;        拷贝数据</span><br><span class="line"> */</span><br><span class="line">export const deepcopy = function (source) &#123;</span><br><span class="line">  if (!source) &#123;</span><br><span class="line">    return source;</span><br><span class="line">  &#125;</span><br><span class="line">  let sourceCopy = source instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  for (let item in source) &#123;</span><br><span class="line">    sourceCopy[item] = typeof source[item] === &apos;object&apos; ? deepcopy(source[item]) : source[item];</span><br><span class="line">  &#125;</span><br><span class="line">  return sourceCopy;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="标准时间或时间戳格式化为日期"><a href="#标准时间或时间戳格式化为日期" class="headerlink" title="标准时间或时间戳格式化为日期"></a>标准时间或时间戳格式化为日期</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param  &#123;Date | Number&#125; date  标准时间或时间戳</span><br><span class="line"> * @param  &#123;String&#125; fmt   日期格式，eg:yyyy-MM-dd hh:mm:ss、yyyy/MM/dd hh:mm、yyyy-MM-dd等（注意月份M为大写其他为小写）</span><br><span class="line"> * @return &#123;String&#125;       格式化之后的日期</span><br><span class="line"> */</span><br><span class="line">export const dateFtt = function (date,fmt)&#123;</span><br><span class="line">  if(typeof date === &apos;number&apos;)&#123;</span><br><span class="line">    var date = new Date(date);</span><br><span class="line">  &#125;</span><br><span class="line">  var o = &#123;</span><br><span class="line">    &quot;M+&quot; : date.getMonth()+1,                 //月份</span><br><span class="line">    &quot;d+&quot; : date.getDate(),                    //日</span><br><span class="line">    &quot;h+&quot; : date.getHours(),                   //小时</span><br><span class="line">    &quot;m+&quot; : date.getMinutes(),                 //分</span><br><span class="line">    &quot;s+&quot; : date.getSeconds(),                 //秒</span><br><span class="line">    &quot;q+&quot; : Math.floor((date.getMonth()+3)/3), //季度</span><br><span class="line">    &quot;S&quot;  : date.getMilliseconds()             //毫秒</span><br><span class="line">  &#125;;</span><br><span class="line">  if(/(y+)/.test(fmt))</span><br><span class="line">    fmt=fmt.replace(RegExp.$1, (date.getFullYear()+&quot;&quot;).substr(4 - RegExp.$1.length));</span><br><span class="line">  for(var k in o)</span><br><span class="line">    if(new RegExp(&quot;(&quot;+ k +&quot;)&quot;).test(fmt))</span><br><span class="line">  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : ((&quot;00&quot;+ o[k]).substr((&quot;&quot;+ o[k]).length)));</span><br><span class="line">  return fmt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="中文根据拼音排序-（localeCompare-比较的是字符串）"><a href="#中文根据拼音排序-（localeCompare-比较的是字符串）" class="headerlink" title="中文根据拼音排序 （localeCompare 比较的是字符串）"></a>中文根据拼音排序 （localeCompare 比较的是字符串）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> * @param &#123; Array &#125; arr - 数组</span><br><span class="line"> * @param &#123; String &#125; key - 若数组元素是对象，对象的属性名</span><br><span class="line"> */</span><br><span class="line">const pySegSort = (arr,key) =&gt; &#123;</span><br><span class="line">  if (!String.prototype.localeCompare)</span><br><span class="line">    return null;</span><br><span class="line"></span><br><span class="line">  var letters = &quot;*ABCDEFGHJKLMNOPQRSTWXYZ&quot;.split(&apos;&apos;);</span><br><span class="line">  var zh = &quot;阿八嚓哒妸发旮哈讥咔垃马拏噢妑七呥扨它穵夕丫匝&quot;.split(&apos;&apos;);</span><br><span class="line"></span><br><span class="line">  var segs = [];</span><br><span class="line">  var curr;</span><br><span class="line">  letters.forEach(function (item, i) &#123;</span><br><span class="line">    curr = &#123; letter: item, data: [] &#125;;</span><br><span class="line">    arr.forEach(function (item2) &#123;</span><br><span class="line">      let target = key ? item2[key] : item2;</span><br><span class="line">      if ((!zh[i - 1] || zh[i - 1].localeCompare(target, &apos;zh&apos;) &lt;= 0) &amp;&amp; target.localeCompare(zh[i], &apos;zh&apos;) == -1) &#123;</span><br><span class="line">        curr.data.push(item2);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    if (curr.data.length) &#123;</span><br><span class="line">      segs.push(curr);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  return segs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="创建FormData"><a href="#创建FormData" class="headerlink" title="创建FormData"></a>创建FormData</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;Object&#125; obj 对象</span><br><span class="line"> * @return &#123;Object&#125;  formdata object</span><br><span class="line"> */</span><br><span class="line">function(obj)&#123;</span><br><span class="line">  var bodyFormData = new FormData();</span><br><span class="line">  if(obj &amp;&amp; obj instanceof Object)&#123;</span><br><span class="line">    Object.keys(obj).forEach((key) =&gt; &#123;</span><br><span class="line">        bodyFormData.append(key, obj[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   return bodyFormData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="获取url上-后参数"><a href="#获取url上-后参数" class="headerlink" title="获取url上?后参数"></a>获取url上?后参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//获取url上?后参数</span><br><span class="line">export const getQueryVariable = (variable) =&gt; &#123;</span><br><span class="line">    var query = window.location.search.substring(1);</span><br><span class="line">    var vars = query.split(&quot;&amp;&quot;);</span><br><span class="line">    for (var i=0;i&lt;vars.length;i++) &#123;</span><br><span class="line">            var pair = vars[i].split(&quot;=&quot;);</span><br><span class="line">            if(pair[0] == variable)&#123;return pair[1];&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return(false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="设置cookie"><a href="#设置cookie" class="headerlink" title="设置cookie"></a>设置cookie</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//设置cookie</span><br><span class="line">export function setCookie(cname, cvalue, exdays) &#123;</span><br><span class="line">  var d = new Date();</span><br><span class="line">  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));</span><br><span class="line">  var expires = &quot;expires=&quot; + d.toUTCString();</span><br><span class="line">  if (exdays == -1) &#123;</span><br><span class="line">    document.cookie = cname + &quot;=&quot; + cvalue + &quot;; &quot; + expires + &quot;;domain=.laozihaojia.com; path=/;&quot;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    document.cookie = cname + &quot;=&quot; + cvalue + &quot;; &quot; + expires;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="获取cookie"><a href="#获取cookie" class="headerlink" title="获取cookie"></a>获取cookie</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//获取cookie</span><br><span class="line">export function getCookie(cname) &#123;</span><br><span class="line">  var strCookie = document.cookie;</span><br><span class="line">  var arrCookie = strCookie.split(&quot;; &quot;);</span><br><span class="line">  for(var i = 0; i &lt; arrCookie.length; i++)&#123;</span><br><span class="line">      var arr = arrCookie[i].split(&quot;=&quot;);</span><br><span class="line">      if(cookieName == arr[0])&#123;</span><br><span class="line">          return arr[1];</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="清除cookie"><a href="#清除cookie" class="headerlink" title="清除cookie"></a>清除cookie</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//清除cookie</span><br><span class="line">export function clearCookie(name) &#123;</span><br><span class="line">  setCookie(name, &quot;&quot;, -1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="60s倒计时"><a href="#60s倒计时" class="headerlink" title="60s倒计时"></a>60s倒计时</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 60s倒计时</span><br><span class="line"> * @param  &#123;string&#125;   target   目标dom</span><br><span class="line"> * @param  &#123;Function&#125; callback 回调</span><br><span class="line"> * @return &#123;Function&#125;          倒计时</span><br><span class="line"> */</span><br><span class="line">export function countDown(target, callback) &#123;</span><br><span class="line">  let gapTime = 60;</span><br><span class="line">  let counting = setInterval(function() &#123;</span><br><span class="line">    if (gapTime &lt;= 0) &#123;</span><br><span class="line">      target.innerHTML = &quot;重新发送&quot;;</span><br><span class="line">      clearInterval(counting);</span><br><span class="line">      if (callback) &#123;</span><br><span class="line">        callback();</span><br><span class="line">      &#125;</span><br><span class="line">      return;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      target.innerHTML = gapTime + &quot;s&quot;;</span><br><span class="line">      gapTime--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">  return counting;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="1-60分钟倒计时"><a href="#1-60分钟倒计时" class="headerlink" title="1-60分钟倒计时"></a>1-60分钟倒计时</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 1-60分钟倒计时</span><br><span class="line"> * @param  &#123;string&#125;   target   目标dom</span><br><span class="line"> * @param  &#123;Number&#125;   tSec     总秒数</span><br><span class="line"> * @param  &#123;Function&#125; callback 结束之后的回调</span><br><span class="line"> * @return &#123;[type]&#125;            [description]</span><br><span class="line"> */</span><br><span class="line">export function minCountDown(target, tSec, callback) &#123;</span><br><span class="line">  let t = setInterval(() =&gt; &#123;</span><br><span class="line">    if (tSec &lt;= 0) &#123;</span><br><span class="line">      clearInterval(t);</span><br><span class="line">      target.innerHTML = &apos;00:00:00&apos;;</span><br><span class="line">      if (callback &amp;&amp; typeof callback === &apos;function&apos;) &#123;</span><br><span class="line">        callback();</span><br><span class="line">      &#125;</span><br><span class="line">      return;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      let m = parseInt(tSec / 60);</span><br><span class="line">      let s = tSec % 60;</span><br><span class="line">      m &lt; 10 ? m = &apos;0&apos; + m : &apos;&apos;;</span><br><span class="line">      s &lt; 10 ? s = &apos;0&apos; + s : &apos;&apos;;</span><br><span class="line">      target.innerHTML = &apos;00:&apos; + m + &apos;:&apos; + s;</span><br><span class="line">      tSec--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 1000)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="超过一千用k来表示，保留一位小数"><a href="#超过一千用k来表示，保留一位小数" class="headerlink" title="超过一千用k来表示，保留一位小数"></a>超过一千用k来表示，保留一位小数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 超过一千用k来表示，保留一位小数</span><br><span class="line"> * @param  &#123;Number&#125; num  点赞数</span><br><span class="line"> * @return &#123;String&#125;      处理后的点赞数</span><br><span class="line"> */</span><br><span class="line">export function processNumber(num) &#123;</span><br><span class="line">  if (num &gt;= 1000) &#123;</span><br><span class="line">    let numberThousand = Math.round(Math.round(num / 10) / 10) / 10;</span><br><span class="line">    return numberThousand + &apos;k&apos;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 浏览器兼容storage</span><br><span class="line">let supportStorage = function () &#123;</span><br><span class="line">  let flag = false</span><br><span class="line">  if (!window.storage) &#123;</span><br><span class="line">    throw new Error(&quot;浏览器不支持localStorage&quot;)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    flag = true</span><br><span class="line">  &#125;</span><br><span class="line">  return flag</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="绑定事件"><a href="#绑定事件" class="headerlink" title="*绑定事件"></a>*绑定事件</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  /**</span><br><span class="line">   * </span><br><span class="line">   * @param &#123;*&#125; element</span><br><span class="line">   * @param &#123;*&#125; eType</span><br><span class="line">   * @param &#123;*&#125; handle</span><br><span class="line">   * @param &#123;*&#125; bol</span><br><span class="line">   */</span><br><span class="line">  addEvent (element, eType, handle, bol = true) &#123;</span><br><span class="line">    if (element.addEventListener) &#123;</span><br><span class="line">      element.addEventListener(eType, handle, bol)</span><br><span class="line">    &#125; else if (element.attachEvent) &#123;</span><br><span class="line">      element.attachEvent(eType, handle, bol)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      element[&quot;on&quot; + eType] = null</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="函数防抖动"><a href="#函数防抖动" class="headerlink" title="*函数防抖动"></a>*函数防抖动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 函数防抖动</span><br><span class="line"> * @param &#123;*执行函数&#125; fn</span><br><span class="line"> * @param &#123;*时间间隔&#125; wait</span><br><span class="line"> */</span><br><span class="line">Util._debance = function (fn, wait) &#123;</span><br><span class="line">  let timer = null</span><br><span class="line">  return function () &#123;</span><br><span class="line">    let _this = this</span><br><span class="line">    let args = arguments</span><br><span class="line">    if (timer) &#123;</span><br><span class="line">      clearTimeout(timer)</span><br><span class="line">      timer = null</span><br><span class="line">    &#125;</span><br><span class="line">    timer = setTimeout(() =&gt; &#123;</span><br><span class="line">      fn.apply(_this, args)</span><br><span class="line">    &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="节流函数"><a href="#节流函数" class="headerlink" title="*节流函数"></a>*节流函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 节流函数</span><br><span class="line"> * @param &#123;*要执行的函数&#125; fn</span><br><span class="line"> * @param &#123;*等待时间&#125; wait</span><br><span class="line"> */</span><br><span class="line">Util._throttle = function (fn, wait) &#123;</span><br><span class="line">  let _lastTime = null</span><br><span class="line">  return function () &#123;</span><br><span class="line">    let _nowTime = new Date()</span><br><span class="line">    if (_nowTime - _lastTime &gt; wait || !_lastTime) &#123;</span><br><span class="line">      fn()</span><br><span class="line">      _lastTime = _nowTime</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="要获取的url参数，无论是hash还是search值"><a href="#要获取的url参数，无论是hash还是search值" class="headerlink" title="*要获取的url参数，无论是hash还是search值"></a>*要获取的url参数，无论是hash还是search值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;*要获取的url参数，无论是hash还是search值&#125;</span><br><span class="line"> */</span><br><span class="line">Util.GetQueryString = function(name)&#123;</span><br><span class="line">  var after = window.location.hash.split(&quot;?&quot;)[1]||window.location.search.split(&quot;?&quot;)[1];</span><br><span class="line">  if(after)&#123;</span><br><span class="line">    var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">    var r = after.match(reg);</span><br><span class="line">    if(r != null)&#123;</span><br><span class="line">      return  decodeURIComponent(r[2]);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">      return null;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="计算字符串长度"><a href="#计算字符串长度" class="headerlink" title="计算字符串长度"></a>计算字符串长度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 计算字符串长度</span><br><span class="line"> * @param &#123;*将要计算的字符串&#125;</span><br><span class="line"> * @param &#123;*是否区分中英文&#125;</span><br><span class="line"> * 中文默认长度为2，英文默认为1</span><br><span class="line"> */</span><br><span class="line">Util.charLength = function (c,type=true) &#123;</span><br><span class="line">  c = c || &apos;&apos;;</span><br><span class="line">  var b = 0;</span><br><span class="line">  for (var a = 0; a &lt; c.length; a++) &#123;</span><br><span class="line">    if(type)&#123;</span><br><span class="line">      if ((c.charCodeAt(a) &gt;= 0) &amp;&amp; (c.charCodeAt(a) &lt;= 255)) &#123;</span><br><span class="line">          b++</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          b += 2</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      b++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="格式化的金额"><a href="#格式化的金额" class="headerlink" title="格式化的金额"></a>格式化的金额</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;格式化的金额*&#125;</span><br><span class="line"> */</span><br><span class="line">Util.moneyFormat = function (num) &#123;</span><br><span class="line">  num = num + &quot;&quot;;</span><br><span class="line">  var re = /(-?\d+)(\d&#123;3&#125;)/;</span><br><span class="line">  if(!re.test(num)) throw new Error (&apos;The argument is not of type number&apos;)</span><br><span class="line">  num = num.replace(re, &quot;$1,$2&quot;);</span><br><span class="line">  return num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断浏览版本"><a href="#判断浏览版本" class="headerlink" title="判断浏览版本"></a>判断浏览版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isFF=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return UA &amp;&amp; UA.match(/firefox\/(\d+)/)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isPhantomJS"><a href="#isPhantomJS" class="headerlink" title="isPhantomJS"></a>isPhantomJS</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isPhantomJS=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return UA &amp;&amp; /phantomjs/.test(UA)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isChrome"><a href="#isChrome" class="headerlink" title="isChrome"></a>isChrome</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isChrome=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return UA &amp;&amp; /chrome\/\d+/.test(UA) &amp;&amp; !isEdge</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isIOS"><a href="#isIOS" class="headerlink" title="isIOS"></a>isIOS</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isIOS=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return (UA &amp;&amp; /iphone|ipad|ipod|ios/.test(UA)) || (weexPlatform === &apos;ios&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isAndroid"><a href="#isAndroid" class="headerlink" title="isAndroid"></a>isAndroid</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isAndroid=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return (UA &amp;&amp; UA.indexOf(&apos;android&apos;) &gt; 0) || (weexPlatform === &apos;android&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isEdge"><a href="#isEdge" class="headerlink" title="isEdge"></a>isEdge</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isEdge=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return UA &amp;&amp; UA &amp;&amp; UA.indexOf(&apos;edge/&apos;) &gt; 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isIE"><a href="#isIE" class="headerlink" title="isIE"></a>isIE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isIE=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return UA &amp;&amp; /msie|trident/.test(UA)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isIE9"><a href="#isIE9" class="headerlink" title="isIE9"></a>isIE9</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Util.isIE9=function () &#123;</span><br><span class="line">  const UA = inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase()</span><br><span class="line">  return UA &amp;&amp; UA.indexOf(&apos;msie 9.0&apos;) &gt; 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断函数是宿主环境提供还是自定义"><a href="#判断函数是宿主环境提供还是自定义" class="headerlink" title="判断函数是宿主环境提供还是自定义"></a>判断函数是宿主环境提供还是自定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Util.isNative=function (Ctor) &#123;</span><br><span class="line">  return typeof Ctor === &apos;function&apos; &amp;&amp; /native code/.test(Ctor.toString())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>export default new Util()</p>
+</blockquote>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/29/工作中公用css/">
+        <span class="nav-arrow">← </span>
+        
+          工作中公用css
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/09/25/Vue02/">
+        
+          Vue基础知识02（vue的生命周期与自定义指令）
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <!-- <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div> -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <!-- <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div> -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <!-- <div id="comments"></div> -->
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#移动端的一些工具函数js"><span class="toc-nav-text">移动端的一些工具函数js</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断手机系统"><span class="toc-nav-text">判断手机系统</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断手机联网状态"><span class="toc-nav-text">判断手机联网状态</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#微信登录"><span class="toc-nav-text">微信登录</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断是否为微信"><span class="toc-nav-text">判断是否为微信</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断是否为qq"><span class="toc-nav-text">判断是否为qq</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断环境是pc端还是mobile端"><span class="toc-nav-text">判断环境是pc端还是mobile端</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#页面环境model"><span class="toc-nav-text">页面环境model</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#下载App"><span class="toc-nav-text">下载App</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#打开app-深度链接"><span class="toc-nav-text">打开app(深度链接)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#设置和读取sessionStorage（localStorage同理）"><span class="toc-nav-text">设置和读取sessionStorage（localStorage同理）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#生成随机数（数字加字母）"><span class="toc-nav-text">生成随机数（数字加字母）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#深拷贝"><span class="toc-nav-text">深拷贝</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#标准时间或时间戳格式化为日期"><span class="toc-nav-text">标准时间或时间戳格式化为日期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#中文根据拼音排序-（localeCompare-比较的是字符串）"><span class="toc-nav-text">中文根据拼音排序 （localeCompare 比较的是字符串）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建FormData"><span class="toc-nav-text">创建FormData</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#获取url上-后参数"><span class="toc-nav-text">获取url上?后参数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#设置cookie"><span class="toc-nav-text">设置cookie</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#获取cookie"><span class="toc-nav-text">获取cookie</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#清除cookie"><span class="toc-nav-text">清除cookie</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#60s倒计时"><span class="toc-nav-text">60s倒计时</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-60分钟倒计时"><span class="toc-nav-text">1-60分钟倒计时</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#超过一千用k来表示，保留一位小数"><span class="toc-nav-text">超过一千用k来表示，保留一位小数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#绑定事件"><span class="toc-nav-text">*绑定事件</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#函数防抖动"><span class="toc-nav-text">*函数防抖动</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#节流函数"><span class="toc-nav-text">*节流函数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#要获取的url参数，无论是hash还是search值"><span class="toc-nav-text">*要获取的url参数，无论是hash还是search值</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#计算字符串长度"><span class="toc-nav-text">计算字符串长度</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#格式化的金额"><span class="toc-nav-text">格式化的金额</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断浏览版本"><span class="toc-nav-text">判断浏览版本</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isPhantomJS"><span class="toc-nav-text">isPhantomJS</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isChrome"><span class="toc-nav-text">isChrome</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isIOS"><span class="toc-nav-text">isIOS</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isAndroid"><span class="toc-nav-text">isAndroid</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isEdge"><span class="toc-nav-text">isEdge</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isIE"><span class="toc-nav-text">isIE</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#isIE9"><span class="toc-nav-text">isIE9</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#判断函数是宿主环境提供还是自定义"><span class="toc-nav-text">判断函数是宿主环境提供还是自定义</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://lly168.github.io/2019/05/29/移动端的一些工具函数js/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "lly";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "移动端的一些工具函数js",
+        owner: "lly",
+        repo: "lly.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+    <p class="copyright">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+     
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量: 
+                <span id="busuanzi_value_site_pv" style="display: none"></span> 
+                <span id="pv">45050</span>
+                次
+                
+        </span>
+        <span class="post-meta-divider" style="margin: 0 16px">|</span>
+        <span id="busuanzi_container_site_uv">
+                本站访客数:
+                 <span id="busuanzi_value_site_uv" style="display: none"></span> 
+                 <span id="uv">20260</span>
+                人
+        </span>
+    </p>
+    <p class="copyright" style="margin: 10px 0px">
+        &copy;2017 ~ 2019 lly的博客 --- 湘ICP备lly20203344-520号
+    </p>
+     
+  </footer>
+  
+  <script>
+   
+    var num = document.getElementById("pv");
+    setInterval(function(){
+      num.innerHTML = num.innerHTML-0 +1
+    }, 6000);
+    var num2 = document.getElementById("uv");
+    setInterval(function(){
+      num2.innerHTML = num2.innerHTML-0 +1
+    }, 7000);
+    
+    function async(u, c) {
+      var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+  </script>
+  <script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+      FastClick.attach(document.body);
+    })
+  </script>
+  
+  <script>
+    var hasLine = 'true';
+    async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+      $('figure pre').each(function(i, block) {
+        var figure = $(this).parents('figure');
+        if (hasLine === 'false') {
+          figure.find('.gutter').hide();
+        }
+        var lang = figure.attr('class').split(' ')[1] || 'code';
+        var codeHtml = $(this).html();
+        var codeTag = document.createElement('code');
+        codeTag.className = lang;
+        codeTag.innerHTML = codeHtml;
+        $(this).attr('class', '').empty().html(codeTag);
+        figure.attr('data-lang', lang.toUpperCase());
+        hljs.highlightBlock(block);
+      });
+    })
+  </script>
+  <!-- Baidu Tongji -->
+  
+  <script src="/js/script.js"></script>
+  </body>
+</html>
